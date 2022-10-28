@@ -34,14 +34,12 @@ struct ContentView: View {
         } else if outputUnit == "Kelvin" && inputUnit == "Farenheit" {
             newTemp = ((inputValue - 32) / 1.8) + 273.15
         }
-        
         return newTemp
     }
     
     var body: some View {
         NavigationView {
             Form {
-                
                 Section("What would you like to convert from?") {
                     Picker("Input Length", selection: $inputUnit) {
                         ForEach(units, id: \.self) {
@@ -50,7 +48,6 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
                 Section("What would you like to convert to?") {
                     Picker("Output length", selection: $outputUnit) {
                         ForEach(units, id: \.self) {
@@ -59,13 +56,11 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
                 Section("Input") {
                     TextField("Amount", value: $inputValue, format: .number)
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
                 }
-                
                 Section("Output") {
                     Text(convertedTemp, format: .number)
                 }
